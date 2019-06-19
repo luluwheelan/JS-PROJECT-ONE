@@ -21,7 +21,7 @@ exports.index = (req, res) => {
 //Show only the beer records associated with the tester 
   exports.myBeer = (req, res) => {
     req.isAuthenticated();
-      Beer.find({
+      beer.find({
         tester: req.session.userId
       })
       .populate('tester')
@@ -119,7 +119,7 @@ exports.create = (req, res) => {
       })
       .then(() => {
         req.flash('success', 'Your beer record was updated successfully.');
-      res.redirect('/beers');
+      res.redirect('/beers/myBeer');
     })
     .catch(err => {
       req.flash('error', `ERROR: ${err}`);
@@ -140,11 +140,11 @@ exports.destroy = (req, res) => {
       })
       .then(() => {
         req.flash('success', 'Your beer was deleted successfully.');
-        res.redirect("/beers");
+        res.redirect("/beers/myBeer");
       })
       .catch(err => {
         req.flash('error', `ERROR: ${err}`);
-        res.redirect('/beers');
+        res.redirect('/beers/myBeer');
       });
   };
 

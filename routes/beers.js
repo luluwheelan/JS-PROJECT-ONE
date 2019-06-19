@@ -10,8 +10,8 @@ router.get('/:id', BeersController.show); //show single beer
 router.get('/:id/edit', BeersController.edit);
 
 router.post('/', BeersController.create);
-//router.post('/', BeersController.update);
-//router.post('/destroy', BeersController.destroy);
+router.post('/update', BeersController.update);
+router.post('/destroy', BeersController.destroy);
 
 //End routers
 
