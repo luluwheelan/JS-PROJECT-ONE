@@ -5,20 +5,16 @@ form(action=(beer ? '/beers/update' : '/beers'), method="POST")
   .form-group
     label Name
     input.form-control(name="beer[name]", required, value=(beer ? beer.name : null)) 
-
   .form-group
     label Origin
-    textarea.form-control(name="beer[origin]")
-      = beer ? beer.content : null
+    input.form-control(name="beer[origin]", required, value=(beer ? beer.origin : null)) 
   .form-group
     label Brewery
-    textarea.form-control(name="beer[brewery]")
-      = beer ? beer.content : null
-
+    input.form-control(name="beer[brewery]", required, value=(beer ? beer.brewery : null)) 
   .form-group
     label Description
     textarea.form-control(name="beer[description]")
-      = beer ? beer.content : null
+      = beer ? beer.description : null
 
   .form-group
     button.btn.btn-dark(type="submit") Submit

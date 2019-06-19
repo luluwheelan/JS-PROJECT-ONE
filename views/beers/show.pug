@@ -5,4 +5,12 @@ block content
       h1= beer.name
 
     div
-      = beer.content || "There is no information about this beer"
+      br/
+      h5= "Tester: " + beer.tester.firstName
+      h5= "Origin: " + beer.origin
+      h5= "Brewery: " + beer.brewery
+      br/
+      p= "Description: " + beer.description
+
+
+      a(href='/beers') Show all the beer

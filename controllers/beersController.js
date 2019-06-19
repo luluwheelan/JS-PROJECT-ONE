@@ -1,11 +1,15 @@
 const beer = require('../models/beer');
+const tester = require('../models/tester');
 
 exports.index = (req, res) => {
       beer.find()
+      .populate('tester')
       .then(beers => {
+        
         res.render('beers/index', {
           beers: beers,
           title: 'Beer We Tested'
+          
         });
 
       })
@@ -15,7 +19,7 @@ exports.index = (req, res) => {
       });
   };
 //Show only the beer records associated with the tester 
-  exports.archive = (req, res) => {
+  exports.myBeer = (req, res) => {
     req.isAuthenticated();
       Beer.find({
         tester: req.session.userId
@@ -24,7 +28,7 @@ exports.index = (req, res) => {
         .then(beers => {
           res.render('beers/index', {
             beers: beers,
-            title: 'My Beers'
+            title: 'Beers You Had'
           });
   
         })
@@ -34,12 +38,14 @@ exports.index = (req, res) => {
         });
     };
 
+//everyone can see the detail of a beer record
   exports.show = (req, res) => {
-    req.isAuthenticated();
+    //req.isAuthenticated();
     beer.findOne({
       _id: req.params.id,
-      tester: req.session.userId
+      //tester: req.session.userId
     })
+    .populate('tester')
       .then(beer => {
         res.render('beers/show', {
           title: beer.name,
@@ -112,9 +118,6 @@ exports.create = (req, res) => {
         runValidators: true
       })
       .then(() => {
-        //Go to single beer
-        //res.redirect(`/beers/${req.body.id}`);
-
         req.flash('success', 'Your beer record was updated successfully.');
       res.redirect('/beers');
     })

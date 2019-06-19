@@ -13,7 +13,7 @@ block content
             th Brewery
             th Description
             th Tester
-            if isAuthenticated
+            if isAuthenticated && title== `Beers You Had`
               th Actions
         
         tbody
@@ -24,8 +24,8 @@ block content
               td= beer.origin
               td= beer.brewery
               td= beer.description
-              td= `${beer.tester.firstName} ${beer.tester.lastName}`
-              if isAuthenticated
+              td= beer.tester.firstName
+              if isAuthenticated && title== `Beers You Had`
                 td
                   a(href=`/beers/${beer.id}/edit`) edit 
                   = " | "

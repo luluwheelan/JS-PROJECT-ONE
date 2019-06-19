@@ -1,13 +1,13 @@
 nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand(href='/')
-    img(src='http://birrabiss.com/wp-content/uploads/2016/04/beer-icon.png' alt='home' style='width:40px; height:40px;')
+    img(src='/images/icon.png' alt='home' style='width:40px; height:40px;')
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
 
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       li.nav-item
-        a.nav-link(href='/') Home
+        a.nav-link.font-weight-bold(href='/') Beer World
       li.nav-item
         a.nav-link(href='/about') About
       li.nav-item
@@ -16,7 +16,7 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Beers
           .dropdown-menu
-            a.dropdown-item(href='/beers/archive') My Beer
+            a.dropdown-item(href='/beers/myBeer') My Beer
             a.dropdown-item(href='/beers/new') New Beer
       li.nav-item
         a.nav-link(href='/contact') Contact
