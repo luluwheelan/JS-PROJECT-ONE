@@ -42,7 +42,7 @@ exports.index = (req, res) => {
     })
       .then(beer => {
         res.render('beers/show', {
-          title: beer.title,
+          title: beer.name,
           beer: beer
         });
 
@@ -71,7 +71,7 @@ exports.edit = (req, res) => {
       .then(beer => {
         res.render('beers/edit', {
 
-          title: `Edit ${beer.title}`,
+          title: `Edit ${beer.name}`,
           beer: beer
         });
       })

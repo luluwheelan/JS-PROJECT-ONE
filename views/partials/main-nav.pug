@@ -1,6 +1,6 @@
 nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand(href='/')
-    img(src='../assets/images/icon.png' alt='home' style='width:100px; height:100px;')
+    img(src='http://birrabiss.com/wp-content/uploads/2016/04/beer-icon.png' alt='home' style='width:40px; height:40px;')
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
 
@@ -18,14 +18,16 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
           .dropdown-menu
             a.dropdown-item(href='/beers/archive') My Beer
             a.dropdown-item(href='/beers/new') New Beer
+      li.nav-item
+        a.nav-link(href='/contact') Contact
+        
+    ul.navbar-nav.ml-auto
+      if isAuthenticated
         li.nav-item
-        form.nav-destroy(action=`/logout`, method="POST")
-          input.destroy(type="submit", value="Logout")
+          form.nav-destroy(action=`/logout`, method="POST")
+            input.destroy(type="submit", value="Logout")
       if !isAuthenticated
         li.nav-item
           a.nav-link(href='/testers/new') Register
         li.nav-item
           a.nav-link(href='/login') Login
-      
-      li.nav-item
-        a.nav-link(href='/contact') Contact
