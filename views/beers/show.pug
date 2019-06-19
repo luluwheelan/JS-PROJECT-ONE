@@ -1,0 +1,8 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= beer.name
+
+    div
+      = beer.content || "There is no information about this beer"

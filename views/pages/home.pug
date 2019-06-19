@@ -1,0 +1,12 @@
+extends ../layouts/main.pug
+
+block globals
+  - title = "We are Testing Beers All Over The World"
+
+block content
+
+  header.home-cta
+    h1.text-center
+      = title
+      br
+      a.main-btn.btn.btn-dark(href='/beers') Show All the Beers

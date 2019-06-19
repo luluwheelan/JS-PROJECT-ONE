@@ -1,0 +1,26 @@
+form(action=(blog ? `/testers/update` : "/testers"), method="POST")
+  if tester
+    input(type="hidden", name="id", value=tester.id)
+
+  .form-group
+    label First Name
+    input.form-control(name="tester[firstName]", required, value=(tester ? tester.firstName : null))
+
+  .form-group
+    label Last Name
+    input.form-control(name="tester[lastName]", required, value=(tester ? tester.lastName : null))
+
+  .form-group
+    label Email
+    input.form-control(name="tester[email]", required, value=(tester ? tester.email : null))
+
+  .form-group
+    label Password
+    input.form-control(name="tester[password]", type="password", required, value=(tester ? tester.password : null))
+
+  .form-group
+    label Password Confirmation
+    input.form-control(name="tester[passwordConfirmation]", required, type="password", value=(tester ? tester.passwordConfirmation : null))
+  
+  .form-group
+    button.btn.btn-dark(type="submit") Submit

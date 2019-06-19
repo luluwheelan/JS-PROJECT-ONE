@@ -1,0 +1,30 @@
+{
+  "name": "js-project-one",
+  "version": "1.0.0",
+  "description": "JavaScript project one",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luluwheelan/JS-PROJECT-ONE"
+  },
+  "author": "Lulu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luluwheelan/JS-PROJECT-ONE/issues"
+  },
+  "homepage": "https://github.com/luluwheelan/JS-PROJECT-ONE#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.5.11",
+    "pug": "^2.0.3"
+  }
+}
