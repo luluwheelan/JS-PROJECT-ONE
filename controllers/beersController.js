@@ -1,8 +1,8 @@
-const beer = require('../models/beer');
-const tester = require('../models/tester');
+const Beer = require('../models/beer');
+//const tester = require('../models/tester');
 
 exports.index = (req, res) => {
-      beer.find()
+      Beer.find()
       .populate('tester')
       .then(beers => {
         
@@ -21,7 +21,7 @@ exports.index = (req, res) => {
 //Show only the beer records associated with the tester 
   exports.myBeer = (req, res) => {
     req.isAuthenticated();
-      beer.find({
+      Beer.find({
         tester: req.session.userId
       })
       .populate('tester')
@@ -30,7 +30,6 @@ exports.index = (req, res) => {
             beers: beers,
             title: 'Beers You Had'
           });
-  
         })
         .catch(err => {
           req.flash('error', `ERROR: ${err}`);
@@ -38,10 +37,47 @@ exports.index = (req, res) => {
         });
     };
 
+  //Show beer records associated with the type
+  exports.type = (req, res) => {
+    Beer.find({
+      'type': req.params.type
+    })
+    .populate('tester')
+      .then(beers => {
+        res.render('beers/index', {
+          beers: beers,
+          title: `${req.params.type}`
+        });
+
+      })
+      .catch(err => {
+        req.flash('error', `ERROR: ${err}`);
+        res.redirect('/');
+      });
+  };
+
+    //Show beer records associated with the style
+    exports.style = (req, res) => {
+      Beer.find({
+        'style': req.params.style
+      })
+      .populate('tester')
+        .then(beers => {
+          res.render('beers/index', {
+            beers: beers,
+            title: `${req.params.style}`
+          });
+  
+        })
+        .catch(err => {
+          req.flash('error', `ERROR: ${err}`);
+          res.redirect('/');
+        });
+    };
 //everyone can see the detail of a beer record
   exports.show = (req, res) => {
     //req.isAuthenticated();
-    beer.findOne({
+    Beer.findOne({
       _id: req.params.id,
       //tester: req.session.userId
     })
@@ -70,7 +106,7 @@ exports.index = (req, res) => {
 //edit and show almost the same, they use same form
 exports.edit = (req, res) => {
   req.isAuthenticated();
-  beer.findOne({
+  Beer.findOne({
     _id: req.params.id,
     tester: req.session.userId
   })
@@ -91,7 +127,7 @@ exports.edit = (req, res) => {
 exports.create = (req, res) => {
   req.isAuthenticated();
   req.body.beer.tester = req.session.userId;
-    beer.create(
+    Beer.create(
         req.body.beer
     )
     .then(() => {
@@ -111,7 +147,7 @@ exports.create = (req, res) => {
 
   exports.update = (req, res) => {
     req.isAuthenticated();
-    beer.updateOne({
+    Beer.updateOne({
         _id: req.body.id,
         tester:req.session.userId
       }, req.body.beer, {
@@ -133,7 +169,7 @@ exports.create = (req, res) => {
 
 exports.destroy = (req, res) => {
   req.isAuthenticated();
-    beer.deleteOne({
+    Beer.deleteOne({
         _id: req.body.id,
         tester: req.session.userId
 

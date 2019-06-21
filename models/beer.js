@@ -7,6 +7,16 @@ const BeerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    type: {
+        type: String,
+        enum: ['LAGER', 'ALE', 'HYBRID', 'MALT', 'STOUT', 'OTHER'],
+        default: 'OTHER'
+    },
+    style: {
+        type: String,
+        enum: ['AMBER', 'BLONDE', 'BROWN', 'CREAM', 'DARK', 'PALE', 'STRONG','WHEAT', 'RED','INDIA PALE ALE', 'LIME', 'PILSNER','GOLDEN', 'FRUIT','HONEY','OTHER'],
+        default: 'OTHER'
+    },
     origin: {
         type: String,
         required: false

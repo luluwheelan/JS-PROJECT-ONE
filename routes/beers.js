@@ -6,6 +6,8 @@ const BeersController = require('../controllers/beersController');
 router.get('/', BeersController.index);
 router.get('/myBeer', BeersController.myBeer);//only show longin tester's records
 router.get('/new', BeersController.new);
+router.get('/type/:type', BeersController.type);
+router.get('/style/:style', BeersController.style);
 router.get('/:id', BeersController.show); //show single beer
 router.get('/:id/edit', BeersController.edit);
 

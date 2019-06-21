@@ -9,9 +9,10 @@ block content
         thead
           tr
             th Name
+            th Type
+            th Style
             th Origin
             th Brewery
-            th Description
             th Tester
             if isAuthenticated && title== `Beers You Had`
               th Actions
@@ -21,9 +22,12 @@ block content
             tr
               td
                 a(href=`/beers/${beer.id}`)= beer.name
+              td
+                a(href=`/beers/type/${beer.type}`)= beer.type
+              td
+                a(href=`/beers/style/${beer.style}`)= beer.style
               td= beer.origin
-              td= beer.brewery
-              td= beer.description
+              td= beer.brewery 
               td= beer.tester.firstName
               if isAuthenticated && title== `Beers You Had`
                 td

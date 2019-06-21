@@ -6,6 +6,16 @@ form(action=(beer ? '/beers/update' : '/beers'), method="POST")
     label Name
     input.form-control(name="beer[name]", required, value=(beer ? beer.name : null)) 
   .form-group
+    label Type
+    select.form-control(name="beer[type]", required)
+      each type in ['LAGER', 'ALE', 'HYBRID', 'MALT', 'STOUT', 'OTHER']
+        option(value=type, selected=(beer && beer.type === type))= type.toLowerCase()
+  .form-group
+    label Style
+    select.form-control(name="beer[style]", required)
+      each style in ['AMBER', 'BLONDE', 'BROWN', 'CREAM', 'DARK', 'PALE', 'STRONG','WHEAT', 'RED','INDIA PALE ALE', 'LIME', 'PILSNER','GOLDEN', 'FRUIT','HONEY','OTHER']
+        option(value=style, selected=(beer && beer.style === style))= style.toLowerCase()
+  .form-group
     label Origin
     input.form-control(name="beer[origin]", required, value=(beer ? beer.origin : null)) 
   .form-group
