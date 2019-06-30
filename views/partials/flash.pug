@@ -2,8 +2,12 @@ if flash
 
   .flash
     if flash.success.length
-      .alert.alert-success= flash.success.join("\n")
+      .alert.alert-success.alert-dismissible.fade.show= flash.success.join("\n")
+        button.close(type='button' data-dismiss='alert' aria-label='Close')
+          span(aria-hidden="true") X
 
     if flash.error.length
-      .alert.alert-danger= flash.error.join("\n")
+      .alert.alert-danger.alert-dismissible.fade.show= flash.error.join("\n")
+        button.close(type='button' data-dismiss='alert' aria-label='Close')
+          span(aria-hidden="true") X
 

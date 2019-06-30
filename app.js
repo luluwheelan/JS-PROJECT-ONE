@@ -69,7 +69,7 @@ const isAuthenticated = (req) => {
 app.use((req, res, next) => {
   req.isAuthenticated = () => {
     if (!isAuthenticated(req)) {
-      req.flash('error', `Hey due, please login or register first`);
+      req.flash('error', `Hey dude, please login or register first`);
       res.redirect('/');
     }
   }

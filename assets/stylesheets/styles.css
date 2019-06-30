@@ -23,6 +23,7 @@ body {
 
 .content {
   margin-top: 60px;
+  
 }
 
 .main-btn {
@@ -35,9 +36,14 @@ body {
             border-radius: 8px; 
 }
 
+.alert {
+  margin-bottom: 0;
+}
+
 
 .container{
-  margin-top: 80px;
+  margin-top: 60px;
+  padding-top: 20px;
 }
 
 .destroy{
@@ -59,6 +65,10 @@ body {
 
 
 .flash{
+  margin-top: 60px;
+}
+
+button .close{
   margin-top: 60px;
 }
 
