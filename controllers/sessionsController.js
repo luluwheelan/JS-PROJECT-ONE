@@ -18,7 +18,7 @@ exports.authenticate = (req, res) => {
             req.session.userId = tester.id;
   
             req.flash('success', 'You are logged in.');
-            res.redirect('/beers');
+            res.redirect('/beers/myBeer');
           } else {
             req.flash('error', `ERROR: Your credentials do not match.`);
             res.redirect('/login');
