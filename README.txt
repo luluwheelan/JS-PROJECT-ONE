@@ -3,8 +3,9 @@ This assignment belongs to Group 1.
 Group 1 has two members: Lu Chen and Yingge Hu.
 
 Members were working together, designed and structured this application.
-Lu Chen was resposible for the model, styling, and view.
+Lu Chen was resposible for the model, styling, view, and deploy it to Heroku.
 Yingge Hu was resposible for controllers and routers.
+
 
 
 
